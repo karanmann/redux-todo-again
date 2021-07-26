@@ -21,7 +21,8 @@ export const taskList = createSlice({
     removeTodo: (state, action) => {
       state.tasks = state.tasks.filter((todo) => todo.id !== action.payload)
     },
-    removeAllTodo: (state) => {state.task = []},
+    removeAllTodo: (state) => {state.tasks = []},
+    completedAllTodo: (state) => {state.tasks.completed = true},
     toggleCompleted: (state, action) => {
       const checkTodo = state.tasks.find((todo) => todo.id === action.payload)
 

@@ -2,9 +2,18 @@ import React from 'react'
 import { Summary } from '../components/Summary'
 import { Typography } from '@material-ui/core'
 import moment from 'moment'
+import styled from 'styled-components'
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+`
+
 export const Header = () => {
   return (
-    <>
+    <HeaderContainer>
       <Typography 
         variant='h6'
         color='textPrimary'
@@ -22,6 +31,6 @@ export const Header = () => {
         {moment().format('LLLL')}
       </Typography>
       <Summary />
-    </>
+    </HeaderContainer>
   )
 }

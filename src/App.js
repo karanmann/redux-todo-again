@@ -14,7 +14,7 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div>
         <Header />
         <Tasks />
       </div>
