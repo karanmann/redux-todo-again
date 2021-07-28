@@ -1,10 +1,25 @@
+import { Button, Card, TextField, Tooltip } from '@material-ui/core'
 import React, { useState } from 'react'
 
 import AddCircleOutline from '@material-ui/icons/AddCircleOutline'
-import IconButton from '@material-ui/core/IconButton'
+import styled from 'styled-components'
 import todos from '../reducers/todos'
 import uniqid from 'uniqid'
 import { useDispatch } from 'react-redux'
+
+const AddTaskCard = styled(Card) `
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  padding: 20px;
+  margin-bottom: 20px;
+
+`
+
+const AddTaskButton = styled(Button)`
+margin-left: 20px;
+`
+
 
 const TaskForm = () => {
 
@@ -27,19 +42,29 @@ const TaskForm = () => {
   const style = { color: "white", fontSize: "2em" }
   
   return (
-    <form onSubmit={e => onFormSubmit(e)}>
-      <div>
-        <input 
+    <form 
+      onSubmit={e => onFormSubmit(e)}
+      autoComplete="on"
+    >
+      <AddTaskCard>
+        <TextField 
+          id="standard-required"
+          variant="filled"  
+          label="Write your todo here..." 
           type='text'
           value={value}
-          required
           onChange={e => setValue(e.target.value)}
-          placeholder='Write your todo here...'
+          required
         />
-        <IconButton type="submit">
-          <AddCircleOutline style={style} />
-        </IconButton>
-      </div>
+        <Tooltip title='Add todo'>
+          <AddTaskButton 
+            type="submit"
+            variant="contained" 
+            color="primary">
+            <AddCircleOutline style={style} />
+          </AddTaskButton>
+        </Tooltip>
+      </AddTaskCard>
     </form>
   )
 }

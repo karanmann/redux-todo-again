@@ -50,7 +50,6 @@ const TodosList = () => {
             />
           </Tooltip>
           <div>
-          
             <Tooltip title={`Added: ${moment().calendar()}`}>
             {singleTask.isComplete ?
               <LineThrough
